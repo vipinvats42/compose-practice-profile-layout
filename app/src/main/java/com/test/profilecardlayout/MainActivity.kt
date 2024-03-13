@@ -60,7 +60,7 @@ fun ProfilePicture() {
         border = BorderStroke(2.dp, color = Color.Green),
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth(),
+            .wrapContentSize(),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Image(
