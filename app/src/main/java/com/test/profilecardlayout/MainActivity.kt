@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -31,6 +32,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.ContentAlpha
 import com.test.profilecardlayout.ui.theme.MyTheme
+import com.test.profilecardlayout.ui.theme.lightGreen200
+import com.test.profilecardlayout.ui.theme.veryLightGray
 
 
 class MainActivity : ComponentActivity() {
@@ -48,7 +51,7 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color.LightGray
+        color = veryLightGray
     ) {
         ProfileCard()
     }
@@ -75,11 +78,11 @@ fun ProfileContent() {
 fun ProfilePicture() {
     Card(
         shape = CircleShape,
-        border = BorderStroke(2.dp, color = Color.Green),
+        border = BorderStroke(2.dp, color = lightGreen200),
         modifier = Modifier
             .padding(16.dp)
             .wrapContentSize(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
     ) {
         Image(
             painterResource(id = R.drawable.profile),
@@ -98,6 +101,10 @@ fun ProfileCard() {
             .fillMaxSize()
             .padding(16.dp)
             .wrapContentHeight(align = Alignment.Top),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White, //Card background color
+            contentColor = Color.Black  //Card content color,e.g.text
+        ),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         Row(
